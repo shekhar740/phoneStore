@@ -1,0 +1,187 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.home-top {
+    @apply w-full md:w-1/2 md:mt-24 mt-8
+}
+
+.home-top1 {
+    @apply md:leading-tight md:font-bold font-semibold md:text-[60px] md:tracking-tight text-2xl
+}
+
+.home-top2 {
+    @apply text-sm opacity-40 mt-3
+}
+
+.home-top3 {
+    @apply flex gap-3 md:gap-10 items-center md:mt-10 mt-5
+}
+
+.home-top3 .first {
+    @apply bg-blue-400 md:p-5 md:px-6 rounded-xl text-white md:text-2xl md:font-bold p-3 px-4
+}
+
+.home-top3 .second {
+    @apply flex flex-col items-center md:text-3xl
+}
+
+.home-top3 .second span {
+    @apply text-[10px] opacity-50 md:text-xl md:mt-2
+}
+
+.home-top .buttons {
+    @apply bg-blue-600 md:p-5 md:px-6 p-3 px-4 text-white rounded-xl md:text-2xl font-semibold
+}
+
+.gradient-color {
+    background-image: radial-gradient(circle, #1e4175, #54438b, #8d3b90, #c22782, #eb1263);
+}
+
+/* .react-calendar__navigation__arrow{
+    @apply hidden
+} */
+
+.react-calendar__navigation__prev2-button {
+    @apply hidden
+}
+
+.react-calendar__navigation__next2-button {
+    @apply hidden
+}
+
+.react-calendar__navigation {
+    @apply text-4xl
+}
+
+.react-calendar__viewContainer {
+    @apply text-2xl font-semibold
+}
+
+.react-calendar__month-view__weekdays {
+    @apply text-2xl opacity-40
+}
+
+.react-calendar__month-view__days {
+    @apply text-3xl text-black
+}
+
+/* .calendar{
+    @apply shadow-2xl shadow-white p-5 bg-[#845ec2] rounded-2xl py-8
+} */
+.react-calendar__tile--now {
+    @apply text-black bg-yellow-300 rounded-2xl
+}
+
+.react-calendar__tile--active {
+    @apply bg-green-500 rounded-2xl
+}
+
+/* .react-calendar__tile{
+    @apply
+} */
+/* .react-calendar__month-view__days__day--neighboringMonth{
+    @apply hidden
+} */
+.active-not::before {
+    content: "";
+    position: absolute;
+    width: 150px;
+    top: 2.75rem;
+    background: #54438b;
+    height: 3px;
+    transition: width 9s ease-in-out;
+    /* Adding transition to width property */
+}
+
+.utility-bg {
+    background-image: linear-gradient(to right top, #a1b3cf, #b4b0d2, #cbacce, #dfa9c0, #eca9ad);
+}
+
+/* .inv-b{
+    background-image: linear-gradient(to right top, #4952c8, #4c55ce, #4f58d5, #525bdb, #555ee2);
+    color: white;
+} */
+/* HTML: <div class="loader"></div> */
+.loader {
+    width: 60px;
+    aspect-ratio: 2;
+    --_g: no-repeat radial-gradient(circle closest-side, #000 90%, #0000);
+    background:
+        var(--_g) 0% 50%,
+        var(--_g) 50% 50%,
+        var(--_g) 100% 50%;
+    background-size: calc(100%/3) 50%;
+    animation: l3 1s infinite linear;
+    color: #1e4175;
+}
+
+@keyframes l3 {
+    20% {
+        background-position: 0% 0%, 50% 50%, 100% 50%
+    }
+
+    40% {
+        background-position: 0% 100%, 50% 0%, 100% 50%
+    }
+
+    60% {
+        background-position: 0% 50%, 50% 100%, 100% 0%
+    }
+
+    80% {
+        background-position: 0% 50%, 50% 50%, 100% 100%
+    }
+}
+
+.bg-coming {
+    background-image: linear-gradient(to left bottom, #d8d4dc, #d8d6de, #d9d8df, #d9dae1, #dadce2, #cdd4e6, #c0ccea, #b1c5ee, #95b1f5, #7d9cfa, #6b85fc, #5f6dfb);
+}
+
+/* CSS */
+.square-radio {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 2px solid #F6F6F6;
+    /* Border color */
+    width: 15px;
+    /* Width of the square */
+    height: 15px;
+    /* Height of the square */
+    border-radius: 0;
+    /* Ensures it's a square */
+    outline: none;
+    cursor: pointer;
+    border-radius: 2px;
+
+}
+
+/* This will style the inner circle when radio is checked */
+.square-radio:checked {
+    background-color: #000;
+    /* Background color */
+}
+
+/* This will hide the default radio button */
+.square-radio::-ms-check {
+    display: none;
+}
+
+input {
+    @apply outline-none;
+}
+
+.RightToLeft {
+    animation: RightToLeft 10s infinite linear;
+}
+
+@keyframes RightToLeft {
+    from {
+        transform: translateX(0%);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
