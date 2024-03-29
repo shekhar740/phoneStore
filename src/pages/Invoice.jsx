@@ -20,7 +20,7 @@ import DialogueMaker from '../utils/DialogueMaker';
 
 
 const Invoice = () => {
-
+const [open,setOpen] = useState(false)
   useEffect(() => {
     const header = document.querySelector('.header-most');
     if (header) {
@@ -56,9 +56,10 @@ const Invoice = () => {
       <div className='mt-2 p-2 bg-[#E6F2FF] text-center w-full overflow-hidden'>
         <p className='RightToLeft flex items-center md:gap-6 font-semibold justify-center w-[110vh] overflow-hidden'>Enjoy Customizable templatetes, Gst,Sales,reports,and Premium support ⭐⭐⭐ <span className='bg-white items-center gap-5 px-4 rounded-2xl p-1 flex'>Super Swipe Offer!  <IoRocket /></span></p>
       </div>
+      
       <div className='grid place-content-end md:px-10 mt-10'>
         <div className='flex md:gap-5 gap-2'>
-          <button className='bg-blue-800 text-white p-2 px-5 font-semibolds hover:bg-opacity-70  rounded-md'onClick={() => document.getElementById('my_modal_5').showModal()}>Today Sell</button>
+          <button className='bg-blue-800 text-white p-2 px-5 font-semibolds hover:bg-opacity-70  rounded-md'  onClick={()=>setOpen(true)}>Today Sell</button>
           <button className='bg-blue-800 text-white p-2 px-5 font-semibolds hover:bg-opacity-70 rounded-md' onClick={() => document.getElementById('my_modal_5').showModal()}>Purchase</button>
           <button className='bg-blue-800 text-white p-2 px-5 font-semibolds hover:bg-opacity-70 rounded-md' onClick={() => document.getElementById('my_modal_5').showModal()}>Custom Inv</button>
         </div>
@@ -79,6 +80,7 @@ const Invoice = () => {
           {/* You can open the modal using document.getElementById('ID').showModal() method */}
           <DialogueMaker ComingSoon={ComingSoon} />
           {/* bill dialog */}
+
           <dialog id="Bill" className="modal rounded-md">
             <div className="modal-box ">
               <form method="dialog" className=''>

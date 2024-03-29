@@ -6,12 +6,16 @@ import sell from '../../assets/utility/Sell.png'
 import Calculator from './util/Calculator'
 import Draggable from 'react-draggable';
 import { useNavigate } from 'react-router-dom'
+import notes from '../../assets/activity/notes.svg'
+import cashCounter from '../../assets/activity/cashcounter.svg'
+import Notes from '../dialogs/Notes'
 
 
 
 
 const Utility = () => {
   const location = useNavigate();
+  // #ffaec1
   const data = [
     {
       image: calc,
@@ -38,12 +42,12 @@ const Utility = () => {
       title: "KhataBook",
     },
     {
-      image: Inv,
-      title: "Invoice"
+      image: notes,
+      title: "Notes"
     },
     {
-      image: calc,
-      title: "Calculator"
+      image: cashCounter,
+      title: "Cash Counter"
     },
   ]
   return (
@@ -53,13 +57,18 @@ const Utility = () => {
         <div className='grid grid-cols-4 md:gap-20 gap-10 items-center md:px-20'>
           {data.map((item, i) => (
             <div className="cursor-pointer" key={i} onClick={() => {
-              const claci = document.getElementById('my_modal_3')
+              const claci = document.getElementById('calculator')
+              const notes = document.getElementById('notes-app')
+
               switch (item.title) {
                 case "Calculator":
                   return claci.showModal();
                   break;
                 case "Invoice":
                  return  location('/invoice/retailer');
+                break;
+                case "Notes":
+                  return notes.showModal();
                 default:
                   break;
               }
@@ -73,8 +82,8 @@ const Utility = () => {
       {/*  */}
       {/* You can open the modal using document.getElementById('ID').showModal() method */}
       {/* <button className="btn" >open modal</button> */}
-      <Draggable>
-        <dialog id="my_modal_3" className="modal">
+      <>
+        <dialog id="calculator" className="modal">
           <div className="modal-box ">
             <form method="dialog">
               {/* if there is a button in form, it will close the modal */}
@@ -83,7 +92,16 @@ const Utility = () => {
             <Calculator />
           </div>
         </dialog>
-      </Draggable>
+        <dialog id="notes-app" className="modal">
+          <div className="modal-box ">
+            <form method="dialog">
+              {/* if there is a button in form, it will close the modal */}
+              <button className="text-2xl hover:scale-150 duration-700 md:hover:text-white absolute right-2  top-2 outline-none z-50">X</button>
+            </form>
+            <Notes />
+          </div>
+        </dialog>
+      </>
     </>
   )
 }

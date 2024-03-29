@@ -2,6 +2,7 @@ import React from 'react';
 
 const DialogueMaker = ({ ComingSoon, anyFunction }) => {
     return (
+        // <dialog open={isOpen}> Hello world</dialog>
         <dialog id="my_modal_5" className="modal bg-coming rounded-md">
             <div className="modal-box">
                 <form method="dialog" className="">

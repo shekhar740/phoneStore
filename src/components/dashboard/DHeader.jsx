@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import tempImage from '../../assets/home/about.png';
 import { FaCalendarAlt, FaChevronDown, FaPlusCircle, FaSearch } from 'react-icons/fa';
-import main from '../../assets/activity/page.svg'
+// import main from '../../assets/activity/page.svg'
 import Calendars from './Calendar';
 import feed from '../../assets/activity/feed.svg';
 import edit from '../../assets/activity/edit.svg'
 import Utility from './Utility';
 import { motion } from 'framer-motion';
+import ActivitySave from '../ActivitySave';
+// import ActivitySave from '../popups/ActivitySave';
 
 
 const DHeader = () => {
-  const [index, setIndex] = useState(0);
+
 
   const data = [{
     title: "Account Balance",
@@ -49,8 +51,7 @@ const DHeader = () => {
   }
 
   return (
-
-    <div className="md:ml-32 relative grid grid-cols-1 md:grid-cols-3 items-start md:gap-10">
+    <div className="-z-0 md:ml-32 relative grid grid-cols-1 md:grid-cols-3 items-start md:gap-10">
       <div className='col-span-2'>
         <div className='flex justify-between items-center'>
           <div className='flex items-start gap-8'>
@@ -76,19 +77,11 @@ const DHeader = () => {
             <img src={feed} alt="" className='absolute -right-5 h-[10em] opacity-45' />
           </div>
           {data.map((item, index) => (
-            <div className='bg-white rounded-xl flex items-center md:gap-10 md:p-8 gap-2 p-1'>
+            <div key={index} className='bg-white rounded-xl flex items-center md:gap-10 md:p-8 gap-2 p-1'>
               <img src={edit} alt="" className='w-10 rounded-full border-2 p-2' />
               <p className='flex md:text-xl text-[12px] flex-col items-center'>{item.title} <span className='text-2xl md:text-4xl font-semibold'>1476.00</span></p>
             </div>
-            // <div key={index} className='cursor-pointer hover:scale-110 duration-1000 shadow-md rounded-2xl flex items-center justify-between relative bg-white' >
-            //   <div className='rounded-full border md:p-5 absolute md:w-[3.5em] md:left-5' >
-            //     <img src={edit} alt="" className='' />
-            //   </div>
-            //   <div className='p-5 absolute  md:left-[6em]' >
-            //     <h3 className='md:text-[1.2em] sm:text-5 opacity-60'>{item.title}</h3>
-            //     <p className='md:text-[2em]  font-semibold '>1456.00</p>
-            //   </div>
-            // </div>
+         
           ))}
         </div>
         <Utility />
@@ -96,79 +89,13 @@ const DHeader = () => {
       <div className=''>
         <div className='-z-10 '>
           <Calendars />
-          <div className='mt-5 md:mt-10 w-full'>
-            <div className='flex justify-between'>
-              <h1 className='md:text-3xl text-xl italic font-semibold'>My Task</h1>
-              <button className=" bg-blue-800 text-white md:px-3 p-1 rounded-md flex items-center gap-2 font-semibold" onClick={() => document.getElementById('my_modal_2').showModal()}><FaPlusCircle />Add</button>
-             
-              {/*  */}
-              <dialog id="my_modal_2" className="modal">
-                <div className="modal-box py-8 w-[400px]" >
-                  <div className='flex flex-col gap-5'>npmm
-                    <div className='flex items-center justify-between p-5'>
-                      <h4 className='text-2xl font-semibold'>Product Details</h4>
-                      <form method="dialog">
-                        {/* if there is a button in form, it will close the modal */}
-                        <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-                      </form>
-                    </div>
-                    <div className='px-5 '>
-                      <p className='font-semibold text-md'>Product Title</p>
-                      <input type="text" className='w-full border-2 p-2 rounded-md border-blue-600' placeholder='Product Name..' />
-                    </div>
-                    <div className='px-5'>
-                      <p className='font-semibold text-md'>Search Products</p>
-                      <input type="text" className='w-full border-2 p-2 rounded-md border-blue-600' placeholder='search...' />
-                    </div>
-                    <div className=' h-36 px-5  grid gap-2 overflow-scroll shadow-2xl backdrop-blur-3xl'>
-                      {data2.map((item, i) => (
-                        <div className='bg-slate-300 p-2 rounded-md flex'>
-                          <img src={main} alt="" className='w-10 h-10' />
-                          <div className='flex flex-col gap-2'>
-                            Trievance Chanrger
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                    <div className='grid grid-cols-2'>
-                      <div className='px-5'>
-                        <p className='font-semibold text-md'>Price</p>
-                        <input type="text" className='w-full border-2 p-2 rounded-md border-blue-600' placeholder='search...' />
-                      </div>
-                      <div className='px-5'>
-                        <p className='font-semibold text-md'>Description</p>
-                        <input type="text" className='w-full border-2 p-2 rounded-md border-blue-600' placeholder='search...' />
-                      </div>
-                    </div>
-
-                  </div>
-
-                </div>
-              </dialog>
-            </div>
-            <div className='md:mt-10 flex items-center justify-around border-b-2 py-3 my-2'>
-              <p className='cursor-pointer relative text-2xl task active-not' onClick={() => addActive(0)}>Active</p>
-              <p className='text-2xl relative task cursor-pointer' onClick={() => addActive(1)}>Users</p>
-            </div>
-            {
-              data2.map((item, i) => (
-                <div onClick={() => setIndex(i)} className={`${index == i ? "bg-[#D5CABD] " : ""}  cursor-pointer duration-700 ease-linear p-2 rounded-md md:mt-3 flex justify-between items-center `}>
-                  <div className='flex gap-5'>
-                    <img src={main} alt="" className='w-16 h-14 object-cover' />
-                    <div className='flex flex-col '>
-                      <h3 className='font-semibold text-md'>Trievance Chanrger</h3>
-                      <p className='text-[12px] opacity-60'>8 remainStock</p>
-                      <p className='text-[12px] opacity-60'>Description</p>
-                    </div>
-                  </div>
-                  <button className='bg-[#1e9e71]  h-8 px-6 pt-1 rounded-md text-md text-white flex'>&#8377; 450</button>
-                </div>
-              ))
-            }
-          </div>
+          {/* below is activity area */}
+          <ActivitySave />
         </div>
       </div>
+
     </div>
+    
   );
 };
 

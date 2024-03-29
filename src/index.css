@@ -185,3 +185,10 @@ input {
         transform: translateX(-100%);
     }
 }
+
+.task-bg{
+    background-image: linear-gradient(to right top, #b5b1d7, #c3b7e0, #d2bde9, #e2c3f0, #f2c9f7);
+}
+::-webkit-scrollbar {
+    display: none;
+}

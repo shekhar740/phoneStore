@@ -1,7 +1,7 @@
 import React from 'react'
 import choose from '../../assets/home/choose.png'
 import Lottie from 'react-lottie';
-import animationData from '../../assets/home/Animation - 1710257305617.json'; // Import your Lottie JSON file
+import animationData from '../../assets/home/Animation - 1710257305617.json'; // 
 import how from '../../assets/home/whychoose.svg'
 import { motionProperties, motionPropertiesy } from '../../utils/MotionProperties';
 import {motion} from 'framer-motion'
