@@ -83,7 +83,9 @@ const Notes = () => {
                 </div>
             </div>
             <div className='bg-[#ffaec1] md:p-5 p-3 md:w-[500px]  rounded-md h-[80vh] overflow-scroll'>
-
+                <div className='flex justify-between'>
+                            
+                </div>
             </div>
         </div>
 
