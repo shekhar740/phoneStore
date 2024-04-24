@@ -21,17 +21,11 @@ import DialogueMaker from '../utils/DialogueMaker';
 
 const Invoice = () => {
 const [open,setOpen] = useState(false)
-  useEffect(() => {
-    const header = document.querySelector('.header-most');
-    if (header) {
-      header.classList.add('hidden')
-    }
-
-  }, [])
+  
 
   const headers = () => {
     return (
-      <header className='flex shadow-md border-b-2 mt-2 justify-between items-center md:p-1 md:px-5 p-1'>
+      <header className=' flex shadow-md border-b-2 mt-2 justify-between items-center md:p-1 md:px-5 p-1'>
         <div className='flex md:gap-5 gap-2'>
           <p className='bg-[#FFE8DA] md:p-4 p-3 rounded-full font-semibold text-center'>BM</p>
           <p className='flex flex-col md:text-xl text-md font-bold'>Bhagywanti Mobile <span className='font-normal md:text-sm text-[11px] opacity-60 text-center'>Retailer Management</span></p>
@@ -82,7 +76,7 @@ const [open,setOpen] = useState(false)
           {/* bill dialog */}
 
           <dialog id="Bill" className="modal rounded-md">
-            <div className="modal-box ">
+            <div className="modal-box md:max-w-[800px]">
               <form method="dialog" className=''>
                 {/* if there is a button in form, it will close the modal */}
                 <button className=" btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>

@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom'
 import notes from '../../assets/activity/notes.svg'
 import cashCounter from '../../assets/activity/cashcounter.svg'
 import Notes from '../dialogs/Notes'
+import CashCounter from '../dialogs/CashCounter'
 
 
 
@@ -59,16 +60,19 @@ const Utility = () => {
             <div className="cursor-pointer" key={i} onClick={() => {
               const claci = document.getElementById('calculator')
               const notes = document.getElementById('notes-app')
-
+              const cashCounter = document.getElementById('cash-counter')
               switch (item.title) {
                 case "Calculator":
                   return claci.showModal();
                   break;
                 case "Invoice":
-                 return  location('/invoice/retailer');
-                break;
+                  return location('/invoice/retailer');
+                  break;
                 case "Notes":
                   return notes.showModal();
+                  break;
+                case "Cash Counter":
+                  return cashCounter.showModal();
                 default:
                   break;
               }
@@ -99,6 +103,15 @@ const Utility = () => {
               <button className="text-2xl hover:scale-150 duration-700 md:hover:text-white absolute right-2  top-2 outline-none z-50">X</button>
             </form>
             <Notes />
+          </div>
+        </dialog>
+        <dialog id="cash-counter" className="modal">
+          <div className="modal-box bg-transparent">
+            <form method="dialog">
+              {/* if there is a button in form, it will close the modal */}
+              <button className="text-2xl hover:scale-150 duration-700 md:hover:text-white absolute right-2  top-2 outline-none z-50">X</button>
+            </form>
+            <CashCounter />
           </div>
         </dialog>
       </>

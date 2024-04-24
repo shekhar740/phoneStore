@@ -12,8 +12,6 @@ import ActivitySave from '../ActivitySave';
 
 
 const DHeader = () => {
-
-
   const data = [{
     title: "Account Balance",
     balance: 2589,

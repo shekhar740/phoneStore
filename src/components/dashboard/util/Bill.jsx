@@ -1,12 +1,14 @@
-import { data } from 'autoprefixer';
+// import { data } from 'autoprefixer';
 import React, { useEffect, useState } from 'react';
 import { FaArrowRight, FaChevronLeft, FaPlusCircle } from 'react-icons/fa';
 import { IoHelpCircle, IoSave } from 'react-icons/io5';
-import AddProducts from '../../AddProducts';
 import DialogueMaker from '../../../utils/DialogueMaker';
 import { RiDeleteBin2Fill } from 'react-icons/ri';
-import Draggable from 'react-draggable';
+// import Draggable from 'react-draggable';
 import { motion } from 'framer-motion';
+import { FaAngleDoubleLeft } from "react-icons/fa";
+// import Invoice from '../../../utils/invoice/Print';
+import { Link } from 'react-router-dom';
 
 
 const Bill = () => {
@@ -38,7 +40,7 @@ const Bill = () => {
 
   const saveProduct = (item) => {
     if (qty && price) {
-      setProducts([...product, { itemName: item, quantity: qty,price:price }]);
+      setProducts([...product, { itemName: item, quantity: qty, price: price }]);
       setShow(true)
     }
     console.log(product)
@@ -52,11 +54,12 @@ const Bill = () => {
     setSelectedItemIndex(index);
   };
 
+
   return (
-    
-    <div className='grid place-content-center'>
+
+    <div className='bill-home'>
       <div className='p-5 cursor-pointer'>
-        <h3 className='flex items-center text-2xl md:gap-10 gap-2 '><FaChevronLeft />  Create Invoice</h3>
+        <h3 className='flex items-center text-2xl md:gap-10 gap-2 '><FaAngleDoubleLeft />  Create Invoice</h3>
         <div className='md:px-10 my-8 flex justify-between items-center gap-5'>
           <div className='flex items-center md:gap-5 gap-2'>
             <input type="radio" className='square-radio' />
@@ -70,9 +73,14 @@ const Bill = () => {
         </div>
         <div className='bg-[#E6F2FF] md:p-3 p-2 grid grid-cols-2 gap-5 '>
           <div className='flex flex-col gap-2 col-span-2'>
-            <label htmlFor="inputId" className='font-semibold flex gap-2 items-center'>Select Customer <span><IoHelpCircle className='opacity-60' /></span></label>
+            <label htmlFor="inputId" className='font-semibold flex gap-2 items-center'>Customer Detail <span><IoHelpCircle className='opacity-60' /></span></label>
             <input type="text" id="inputId" className='rounded-md p-1' placeholder='Enter Customer, Company Name..' name="inputName" />
           </div>
+           <div className='flex flex-col gap-2 col-span-2'>
+            <label htmlFor="" className='font-semibold flex gap-2 items-center'>Address Detail<span><IoHelpCircle className='opacity-60' /></span></label>
+            <input type="text" id="inputId" className='rounded-md p-1' placeholder='user location' name="inputName" />
+          </div>
+        
           <div className='flex flex-col gap-2 relative '>
             <label htmlFor="inputDate" className='font-semibold flex gap-2 items-center'>Invoice Date</label>
             <input type="date" id="inputDate" value={todate} className='p-1 w-full' onChange={handleDateChange} />
@@ -109,18 +117,18 @@ const Bill = () => {
                       <p className='md:text-md text-sm'> Qty -<input type="number" className='rounded-md text-center md:w-10 w-8' maxLength={2} value={qty} onChange={(e) => setQty(e.target.value)} /></p>
                       {/* price */}
                       <p>Price - <input type="number" className='rounded-md text-center w-14' maxLength={4} value={price} onChange={(e) => setPrice(e.target.value)} /></p>
-                      <motion.p onClick={() => saveProduct(item)} className='flex flex-col text-sm'><IoSave  /> <span className='text-[8px]'>save</span></motion.p>
+                      <motion.p onClick={() => saveProduct(item)} className='flex flex-col text-sm'><IoSave /> <span className='text-[8px]'>save</span></motion.p>
                     </div>
                   )}
                 </div>
               ))
             )}
           </div>
-  
+
         </div>
-       Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique perspiciatis aliquam nam voluptate culpa tempore distinctio quos natus, quo neque tempora accusantium ducimus? Autem, tempora fuga minima hic nostrum adipisci quidem sequi quasi unde odio voluptates neque nam itaque reiciendis dignissimos sed amet saepe accusantium nemo, libero ea ipsam eos. Corrupti iure accusantium alias at cum incidunt error vel, illum perferendis repudiandae deleniti odio asperiores. Tempore, obcaecati. Qui laborum eligendi, repellendus fuga explicabo inventore quis ad laboriosam sapiente repellat, quidem unde quos, possimus hic veritatis numquam et autem aspernatur tempora ex a neque! Molestias suscipit modi sequi enim, magni impedit?
+
       </div>
-      <button className=' bg-blue-700 p-2 text-white font-bold rounded-lg my-5 sticky bottom-5 italic'>Create</button>
+      <Link to="/bill" className=' bg-blue-700 p-2 text-white w-full font-bold rounded-lg my-5 sticky bottom-5 italic'>Create</Link>
     </div>
   );
 };
